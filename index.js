@@ -1,6 +1,14 @@
 const onlyLettersAndSpaces = (str) => {
   return /^[A-Za-z\s]*$/.test(str);
 };
+
+/**
+ * Checks if the given name contains only letters and spaces.
+ * It will also update the error message shown to the user, with a
+ * suitable text.
+ * @param {*} name
+ * @returns true if the name is valid, false otherwise
+ */
 const validateName = (name) => {
   if (!name) {
     error.innerText = "Name is not provided!";
@@ -15,6 +23,10 @@ const validateName = (name) => {
   return true;
 };
 
+/**
+ * Makes sure that the user has selected one of the genders.
+ * @returns false if neither of the genders are selected
+ */
 const validateGender = () => {
   if (!isMale.checked && !isFemale.checked) {
     console.log("here");
@@ -24,6 +36,11 @@ const validateGender = () => {
   return true;
 };
 
+/**
+ * Updates the prediction text with the given values
+ * @param {*} param0 - gender and its probability
+ * @param {*} name - name
+ */
 const showPrediction = ({ gender, probability }, name) => {
   // handling the case where the api doesn't have any prediction for the name
   if (!gender) {
@@ -34,6 +51,11 @@ const showPrediction = ({ gender, probability }, name) => {
   predictionText.innerText = `${name} is ${percentage}% ${gender}`;
 };
 
+/**
+ * Predicts the gender of the given name from an external API.
+ * It will show the result or error to the user.
+ * @param {*} name
+ */
 const fetchPrediction = async (name) => {
   const url = new URL("https://api.genderize.io/");
 
@@ -49,6 +71,12 @@ const fetchPrediction = async (name) => {
   }
 };
 
+/**
+ * Updates the name and gender shown in the "save answer" section.
+ * It will also update the global variable "currentSavedAnswer".
+ * @param {*} name
+ * @param {*} gender
+ */
 const updateSavedAnswer = (name, gender) => {
   savedAnswerText.innerText = `${name} is ${gender}`;
 
@@ -57,6 +85,11 @@ const updateSavedAnswer = (name, gender) => {
   currentSavedAnswer.gender = gender;
 };
 
+/**
+ * Gets the gender of the given name from localStorage.
+ * If no gender is found, it will show a message to the user.
+ * @param {*} name
+ */
 const getSavedValues = (name) => {
   const gender = localStorage.getItem(name);
   if (gender) {
@@ -66,6 +99,12 @@ const getSavedValues = (name) => {
   }
 };
 
+/**
+ * It will validate the form and if everything is ok, it will get the
+ * saved gender of the given name from localStorage. Then, it will fetch
+ * the name's gender prediction from an external API.
+ * @param {*} event
+ */
 const handleFormSubmit = (event) => {
   event.preventDefault();
 
@@ -77,6 +116,11 @@ const handleFormSubmit = (event) => {
   }
 };
 
+/**
+ * Saves the given name and its given gender to localStorage if the name
+ * is valid and a gender is selected.
+ * It will show the saved values to the user as well.
+ */
 const handleSave = () => {
   const { value: name } = nameInput;
   if (validateName(name) && validateGender()) {
@@ -90,6 +134,9 @@ const handleSave = () => {
   }
 };
 
+/**
+ * Clears the current name and gender from localStorage.
+ */
 const handleClear = () => {
   localStorage.removeItem(currentSavedAnswer.name);
 };
