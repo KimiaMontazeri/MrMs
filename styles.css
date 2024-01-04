@@ -1,0 +1,44 @@
+body {
+    /* background-image: url(/assets/bg-image-3.webp); */
+    /* background-size: cover; */
+    background-color: powderblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.center {
+    padding: 50px;
+    margin-top: 15%;
+    border-radius: 40px;
+    background-color: peachpuff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-wrapper {
+    display: flex;
+    gap: 128px;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+div .dashed {
+    border-style: dashed;
+    padding: 10px;
+}
