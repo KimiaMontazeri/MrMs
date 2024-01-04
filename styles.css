@@ -1,7 +1,6 @@
 body {
-    /* background-image: url(/assets/bg-image-3.webp); */
-    /* background-size: cover; */
-    background-color: powderblue;
+    background-image: url(/assets/bg-image.jpg);
+    background-size:2000px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,20 +9,24 @@ body {
 
 .center {
     padding: 50px;
-    margin-top: 15%;
-    border-radius: 40px;
-    background-color: peachpuff;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.glassy {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
 .col-wrapper {
     display: flex;
     gap: 128px;
-    /* justify-content: center;
-    align-items: center; */
 }
 
 .column {
