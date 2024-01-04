@@ -3,6 +3,11 @@ const onlyLettersAndSpaces = (str) => {
 };
 
 const showPrediction = ({ gender, probability }, name) => {
+  // handling the case where the api doesn't have any prediction for the name
+  if (!gender) {
+    error.innerText = "We currently don't have any prediction for this name :(";
+  }
+
   const percentage = probability * 100;
   predictionText.innerText = `${name} is ${percentage}% ${gender}`;
 };
