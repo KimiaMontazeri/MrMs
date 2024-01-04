@@ -2,6 +2,20 @@ const onlyLettersAndSpaces = (str) => {
   return /^[A-Za-z\s]*$/.test(str);
 };
 
+const validateName = (name) => {
+  if (!name) {
+    error.innerText = "Name is not provided!";
+    return false;
+  }
+
+  if (!onlyLettersAndSpaces(name)) {
+    error.innerText = "Name should only contain letters and spaces!";
+    return false;
+  }
+
+  return true;
+};
+
 const showPrediction = ({ gender, probability }, name) => {
   // handling the case where the api doesn't have any prediction for the name
   if (!gender) {
@@ -33,17 +47,10 @@ const handleFormSubmit = (event) => {
   const { value: name } = nameInput;
 
   // form validation
-  if (!name) {
-    error.innerText = "Name is not provided!";
-    return;
-  } else if (!onlyLettersAndSpaces(name)) {
-    error.innerText = "Name should only contain letters and spaces!";
-    return;
+  if (validateName(name)) {
+    error.innerText = "";
+    fetchPrediction(name);
   }
-
-  // form is valid
-  error.innerText = "";
-  fetchPrediction(name);
 };
 
 const nameInput = document.getElementById("name");
