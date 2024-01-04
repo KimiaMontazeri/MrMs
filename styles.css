@@ -42,3 +42,12 @@ div .dashed {
     border-style: dashed;
     padding: 10px;
 }
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-group label {
+    font-size: small;
+}

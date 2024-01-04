@@ -16,14 +16,22 @@
                         <label>Name:</label>
                         <input type="text" id="name" placeholder="Enter a name...">
                     </div>
-                    <div>
-                        <input type="radio" id="male" value="Male" name="gender">
-                        <label for="male">Male</label>
-                        <input type="radio" id="female" value="Female" name="gender">
-                        <label for="femaile">Female</label>
+                    <div class="radio-group">
+                        <div>
+                            <input type="radio" id="male" value="Male" name="gender">
+                            <label for="male">Male</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="female" value="Female" name="gender">
+                            <label for="femaile">Female</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="unknown" value="Unknown" name="gender" checked>
+                            <label for="femaile">Unknown</label>
+                        </div>
                     </div>
                     <button type="submit">Submit</button>
-                    <button type="button">Save</button>
+                    <button type="button" onclick="handleSave()">Save</button>
                     <p id="error" style="color: red;"></p>
                 </form>
             </div>
@@ -35,7 +43,7 @@
                 <div class="dashed">
                     <h3>Saved Answer</h3>
                     <p id="saved-answer">Save the name and its gender to see the saved answer in this section</p>
-                    <button type="button">Clear</button>
+                    <button type="button" onclick="handleClear()">Clear</button>
                 </div>
             </div>
         </div>
