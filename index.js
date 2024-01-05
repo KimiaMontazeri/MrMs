@@ -139,6 +139,7 @@ const handleSave = () => {
  */
 const handleClear = () => {
   localStorage.removeItem(currentSavedAnswer.name);
+  savedAnswerText.innerText = `No gender is saved for ${currentSavedAnswer.name}`;
 };
 
 const nameInput = document.getElementById("name");
