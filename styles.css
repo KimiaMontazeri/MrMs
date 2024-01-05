@@ -1,21 +1,26 @@
+/* Sets background image and font as well as centering the content using flex-box */
 body {
     background-image: url(./assets/bg-image.jpg);
-    background-size:2000px;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+/* Centers the content using flex-box. Adds a gap between the contents 
+   and margin and padding to the whole container. */
 .center {
     padding: 50px;
     margin-top: 10%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    gap: 128px;
+    height: 360px;
 }
 
+/* Creates a glassy background and applies box-shadow as well */
 .glassy {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
@@ -24,33 +29,25 @@ body {
     -webkit-backdrop-filter: blur(5px);
 }
 
-.col-wrapper {
-    display: flex;
-    gap: 128px;
-}
-
+/* Sets the width of each column  */
 .column {
-    display: flex;
-    flex-direction: column;
     width: 200px;
 }
 
+/* ❗️These styles are not mandatory, but improves the layout of the form items */
 form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+/* Adds a dashed border and some padding to the div's */
 div .dashed {
     border-style: dashed;
     padding: 10px;
 }
 
-.radio-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.radio-group label {
+/* Sets the font-size of the label inside the form */
+form label {
     font-size: small;
 }
